@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For TETICH 💖💖</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    transition: background 1s ease;
+  }#container { text-align: center; position: relative; z-index: 10; }
+
+h1, h2 { opacity: 0; transition: opacity 1s ease; }
+
+h1#line1 { font-size: 4rem; font-weight: bold; text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff1493; background: linear-gradient(90deg, #ff6f91, #ff3d68, #ff99cc, #ffccd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+h2, h1#finalQ, h1#yayBanner, h1#yesMessage, h1#ailavyu { font-size: 2.5rem; color: white; margin-top: 20px; }
+
+h1#yayBanner { font-size: 5rem; font-weight: bold; margin-bottom: 20px; color: #ffd700; text-shadow: 2px 2px 10px #ff0000, 0 0 20px #fff; }
+
+button { display: inline-block; margin: 20px 15px 0 15px; /* buttons will appear closer to question */ padding: 15px 35px; font-size: 1.5rem; border: none; border-radius: 50px; background: white; color: #e91e63; cursor: pointer; opacity: 0; transition: opacity 1s ease, transform 0.3s; }
+
+button:hover { transform: scale(1.1); }
+
+.heart { position: absolute; width: 20px; height: 20px; background: #ff6f91; transform: rotate(45deg); animation: floatUp linear infinite; }
+
+.heart:before, .heart:after { content: ""; position: absolute; width: 20px; height: 20px; background: #ff6f91; border-radius: 50%; }
+
+.heart:before { top: -10px; left: 0; } .heart:after { left: 10px; top: 0; }
+
+@keyframes floatUp { 0% { transform: translateY(100vh) rotate(45deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; } }
+
+.confetti { position: absolute; width: 8px; height: 14px; background-color: white; opacity: 0.8; animation: confettiFall linear infinite; }
+
+@keyframes confettiFall { 0% { transform: translateY(-10vh) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } } </style>
+
+</head>
+<body>
+<div id="container">
+  <h1 id="line1">TETICH 💖💖</h1>
+  <h2 id="line2">I have something I’ve been meaning to ask you…</h2>
+  <h1 id="finalQ">Will you be my girlfriend? 💖</h1>
+  <div id="buttonsContainer">
+    <button id="yesBtn">Yes! 😍</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+  <h1 id="yayBanner">YAY!!! 🎉</h1>
+  <h1 id="yesMessage">Ah🤭kichwa kubwa wewe🫂💖</h1>
+  <h1 id="ailavyu">Ailavyu 😝</h1>
+</div><script>
+  // Floating Hearts
+  for (let i = 0; i < 40; i++) {
+    let heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+    heart.style.background = ['#ff6f91','#ff3d68','#ff99cc','#ffccd5'][Math.floor(Math.random()*4)];
+    document.body.appendChild(heart);
+  }
+
+  // Confetti
+  for (let i = 0; i < 60; i++) {
+    let conf = document.createElement('div');
+    conf.className = 'confetti';
+    conf.style.left = Math.random() * 100 + 'vw';
+    conf.style.animationDuration = (3 + Math.random() * 3) + 's';
+    conf.style.backgroundColor = ['#ffffff','#ffe4e1','#ffd1dc','#fff0f5'][Math.floor(Math.random()*4)];
+    document.body.appendChild(conf);
+  }
+
+  const line1 = document.getElementById('line1');
+  const line2 = document.getElementById('line2');
+  const finalQ = document.getElementById('finalQ');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const yayBanner = document.getElementById('yayBanner');
+  const yesMessage = document.getElementById('yesMessage');
+  const ailavyu = document.getElementById('ailavyu');
+
+  // Sequence animation for initial texts and buttons
+  setTimeout(() => { line1.style.opacity = 1; }, 500);
+  setTimeout(() => { line2.style.opacity = 1; }, 1500);
+  setTimeout(() => { finalQ.style.opacity = 1; }, 2500);
+  setTimeout(() => { yesBtn.style.opacity = 1; noBtn.style.opacity = 1; }, 3000);
+
+  yesBtn.onclick = () => {
+    document.body.style.backgroundColor = '#ff69b4';
+    yayBanner.style.opacity = 1;
+    setTimeout(() => { yesMessage.style.opacity = 1; ailavyu.style.opacity = 1; }, 1000);
+    yesBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+  };
+
+  noBtn.onclick = () => {
+    alert("Please rethink again! 💖");
+    noBtn.style.position = 'absolute';
+    noBtn.style.top = Math.random() * 70 + 10 + 'vh';
+    noBtn.style.left = Math.random() * 70 + 10 + 'vw';
+  };
+</script></body>
+</html>
